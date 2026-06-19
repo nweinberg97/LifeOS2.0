@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeOS — Central Command</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="info-panel">
+            <div class="time-display" id="clock">00:00:00</div>
+            <div class="date-display" id="date">Thursday, June 18</div>
+            <div class="weather-widget" id="weather">
+                <span class="city">Vancouver</span>
+                <span class="temp">18°C</span>
+                <span class="cond">Cloudy</span>
+            </div>
+        </header>
+
+        <button class="universal-board-btn" id="universalBoardBtn" aria-label="Open Universal Board">
+            <div class="orbit-disc">
+                <div class="orbit-ring"></div>
+                <div class="orbit-dot"></div>
+            </div>
+            <span>Universal Board</span>
+        </button>
+
+        <div class="menu-container" id="radialMenuContainer">
+            <button class="menu-trigger" id="menuTrigger" aria-label="Toggle Apps Menu">
+                <div class="triangle-icon"></div>
+            </button>
+            <div class="radial-menu" id="radialMenu">
+                <button class="menu-item brainly" data-tool="brainly" title="Brainly (Notes)">🧠</button>
+                <button class="menu-item boardly" data-tool="boardly" title="Boardly (Boards)">📋</button>
+                <button class="menu-item timely" data-tool="timely" title="Timely (Calendar)">⏳</button>
+                <button class="menu-item taskly" data-tool="taskly" title="Taskly (Tasks)">✅</button>
+            </div>
+        </div>
+
+        <main class="workspace-panel">
+            <div class="workspace-card" id="workspaceCard">
+                <div class="placeholder-view">
+                    <h2>Welcome to LifeOS</h2>
+                    <p>Select a tool from the right menu or use your voice to activate command strings.</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="voice-container" id="draggableVoiceContainer">
+            <button class="voice-btn" id="voiceBtn">
+                <div class="atom-core"></div>
+                <div class="atom-ring ring-1"></div>
+                <div class="atom-ring ring-2"></div>
+            </button>
+            <div class="voice-status" id="voiceStatus">Click to talk to LifeOS</div>
+        </div>
+
+        <div class="command-panel" id="commandPanel">
+            <div class="command-header">LifeOS NLP Interpreter</div>
+            <div class="command-body" id="commandBody">Awaiting command input...</div>
+        </div>
+
+    </div>
+
+    <div class="modal-overlay" id="universalModal">
+        <div class="modal-canvas">
+            <div class="modal-header">
+                <h2>Universal Information Hub</h2>
+                <button class="close-modal-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="board-grid" id="boardGrid">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="fallbackModal">
+        <div class="fallback-card">
+            <h3>Voice Input Fallback</h3>
+            <p>Your browser doesn't support Web Speech API or microphone permissions are blocked. Type your command below:</p>
+            <input type="text" id="fallbackInput" placeholder="e.g., add task buy groceries, open brainly...">
+            <div class="fallback-actions">
+                <button id="submitFallbackBtn">Execute</button>
+                <button id="closeFallbackBtn" class="secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
